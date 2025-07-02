@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://automnex.com
+
+# Sitemaps
+Sitemap: https://automnex.com/sitemap.xml
