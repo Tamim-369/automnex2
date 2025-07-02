@@ -98,15 +98,19 @@ export default function Home() {
             </div>
           </div>
           {/* Download Button */}
-          <a href="/downloads/guard-latest.zip" download className="btn bg-white text-neutral rounded-xl px-10 py-3 font-semibold shadow-xl flex items-center gap-2 text-lg hover:scale-105 transition border-0">
+          <a href="https://github.com/Tamim-369/ShieldSight/releases/download/v1.0/GuardSetup.exe" download className="btn bg-white text-neutral rounded-xl px-10 py-3 font-semibold shadow-xl flex items-center gap-2 text-lg hover:scale-105 transition border-0">
             <FaDownload /> Download
           </a>
           {/* Video Demo or Placeholder */}
           <div className="w-full flex justify-center mt-8">
-            <video className="rounded-xl w-full max-w-md border border-white/10 shadow" controls poster="/logo/Automnex.png">
-              <source src="/demo/guard-demo.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            <iframe
+              src="https://drive.google.com/file/d/1LNL8Ddd5SjetIv4GtdjsuUvM68k0fFDH/preview"
+              className="rounded-xl w-full  border border-white/10 shadow"
+              allow="autoplay"
+              allowFullScreen
+              title="Guard Demo Video"
+              style={{ aspectRatio: '16/9', minHeight: '320px' }}
+            />
           </div>
 
         </div>
