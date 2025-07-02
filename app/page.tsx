@@ -109,7 +109,7 @@ export default function Home() {
           {/* Video Demo or Placeholder */}
           <div className="w-full flex justify-center mt-8">
             <iframe
-              src="https://drive.google.com/file/d/1LNL8Ddd5SjetIv4GtdjsuUvM68k0fFDH/preview"
+              src="https://drive.google.com/file/d/1_Ygnjjq3MLKzHB1wi1m58hsqjaVlVeAo/preview"
               className="rounded-xl w-full  border border-white/10 shadow"
               allow="autoplay"
               allowFullScreen
