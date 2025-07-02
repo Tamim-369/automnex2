@@ -1,13 +1,17 @@
 "use client"
 import Image from "next/image";
 import { FaPaperPlane, FaShieldAlt, FaBolt, FaEye, FaKeyboard, FaDownload } from "react-icons/fa";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Home() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    fetch("/api/track-visit", { method: "POST" });
+  }, []);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -99,7 +103,7 @@ export default function Home() {
           </div>
           {/* Download and Support Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mb-8">
-            <a href="https://github.com/Tamim-369/ShieldSight/releases/download/v1.0/GuardSetup.exe" download className="btn bg-white text-neutral rounded-xl px-10 py-3 font-semibold shadow-xl flex items-center gap-2 text-lg hover:scale-105 transition border-0">
+            <a href="/api/download" download className="btn bg-white text-neutral rounded-xl px-10 py-3 font-semibold shadow-xl flex items-center gap-2 text-lg hover:scale-105 transition border-0">
               <FaDownload /> Download
             </a>
             <a href="https://coff.ee/automnex" target="_blank" rel="noopener noreferrer" className="btn bg-white text-neutral rounded-xl px-10 py-3 font-semibold shadow-xl flex items-center gap-2 text-lg hover:scale-105 transition border-0">
