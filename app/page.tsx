@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image";
-import { FaPaperPlane } from "react-icons/fa";
+import { FaPaperPlane, FaShieldAlt, FaBolt, FaEye, FaKeyboard, FaDownload } from "react-icons/fa";
 import { useState } from "react";
 
 export default function Home() {
@@ -37,32 +37,78 @@ export default function Home() {
   return (
     <main className="min-h-screen flex flex-col items-center justify-center bg-base-100">
       {/* Hero Section */}
-      <section className="w-full max-w-3xl text-center py-16 px-4">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">Automnex</h1>
-        <p className="text-lg md:text-xl text-base-content/80 mb-6">
-          We build software to improve people's lives. Our mission is to create solutions actually improve people's lives.
-        </p>
+      <section className="w-full max-w-3xl text-center py-16 px-4 relative overflow-hidden">
+        {/* Gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-base-200/60 to-secondary/10 rounded-2xl blur-2xl -z-10" />
+        <div className="animate-fade-in flex flex-col items-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Automnex</h1>
+          <p className="text-lg md:text-xl text-base-content/80 mb-6">
+            We build software to improve people's lives. Our mission is to create solutions actually improve people's lives.
+          </p>
+          <button
+            className="btn bg-white text-black rounded-lg px-8 py-2 font-semibold shadow-lg transition hover:scale-105"
+            onClick={() => {
+              const el = document.getElementById('guard');
+              if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
+            Learn More
+          </button>
+        </div>
         {/* <div className="flex justify-center mb-4">
           <Image src="/logo/Automnex.png" alt="Automnex Logo" width={80} height={80} className="rounded-lg" />
         </div> */}
       </section>
 
       {/* Product Highlight Section */}
-      <section id="guard" className="w-full max-w-2xl bg-base-200 rounded-lg shadow-lg p-8 flex flex-col items-center text-white">
-        <h2 className="text-2xl font-semibold mb-2">Introducing Guard</h2>
-        <p className="text-base-content/80 mb-4 text-center">
-          <span className="font-bold">Guard</span> is our automatic NSFW blocker, designed to keep your digital experience safe and distraction-free. Guard uses advanced technology to detect and block inappropriate content in real time, so you can browse with confidence.
-        </p>
-        {/* Video Demo */}
-        <div className="w-full flex justify-center mb-4">
-          <video className="rounded-lg w-full max-w-md" controls poster="/logo/Automnex.png">
-            <source src="/demo/guard-demo.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div className="flex gap-4">
-          {/* <button className="btn bg-white text-black rounded-lg border transition">Learn More</button> */}
-          <a href="/downloads/guard-latest.zip" download className="btn bg-white text-black rounded-lg border border-white  transition">Download</a>
+      <section id="guard" className="w-full flex justify-center items-center mt-20">
+        <div className="relative bg-transparent backdrop-blur-xl rounded-2xl shadow-2xl p-12 flex flex-col items-center w-full xl:max-w-5xl border border-white/10 transition hover:scale-[1.02] hover:shadow-3xl duration-300 animate-fade-in-up">
+          {/* Badge */}
+          <div className="absolute -top-2 left-1/2 -translate-x-1/2 flex items-center gap-2">
+            <span className="badge bg-white text-neutral text-xs px-3 py-1 rounded-lg flex items-center gap-2 shadow-md border border-neutral/20">
+              <FaShieldAlt className="text-base text-neutral" /> Guard v1.0
+            </span>
+          </div>
+          {/* Guard Logo */}
+          <div className="mt-4 mb-6">
+            <Image src="/logo/Guard.png" alt="Guard Logo" width={80} height={80} className="rounded-xl shadow-xl border-2 border-white/20" style={{ boxShadow: '0 0 24px 4px rgba(255,255,255,0.08)' }} />
+          </div>
+          {/* Title & Subtitle */}
+          <h2 className="text-3xl font-bold mb-1 text-white">Guard</h2>
+          <p className="text-neutral-content mb-8 text-center text-lg max-w-lg">
+            AI-powered NSFW content blocker for Windows. Instantly closes inappropriate tabs to keep you focused, productive, and disciplined.
+          </p>
+          {/* Feature List */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10 w-full ">
+            <div className="flex  items-center gap-3 bg-neutral/70 rounded-full px-5 py-3 transition hover:bg-neutral/80 shadow-sm">
+              <FaEye className="text-white text-xl" />
+              <span className="text-white font-medium">Auto-detects NSFW content</span>
+            </div>
+            <div className="flex items-center gap-3 bg-neutral/70 rounded-full px-5 py-3 transition hover:bg-neutral/80 shadow-sm">
+              <FaBolt className="text-white text-xl" />
+              <span className="text-white font-medium">Closes instantly</span>
+            </div>
+            <div className="flex items-center gap-3 bg-neutral/70 rounded-full px-5 py-3 transition hover:bg-neutral/80 shadow-sm">
+              <FaShieldAlt className="text-white text-xl" />
+              <span className="text-white font-medium">Runs in background</span>
+            </div>
+            <div className="flex items-center gap-3 bg-neutral/70 rounded-full px-5 py-3 transition hover:bg-neutral/80 shadow-sm">
+              <FaKeyboard className="text-white text-xl" />
+              <span className="text-white font-medium">Customizable shortcut & sensitivity</span>
+            </div>
+          </div>
+          {/* Download Button */}
+          <a href="/downloads/guard-latest.zip" download className="btn bg-white text-neutral rounded-xl px-10 py-3 font-semibold shadow-xl flex items-center gap-2 text-lg hover:scale-105 transition border-0">
+            <FaDownload /> Download
+          </a>
+          {/* Video Demo or Placeholder */}
+          <div className="w-full flex justify-center mt-8">
+            <video className="rounded-xl w-full max-w-md border border-white/10 shadow" controls poster="/logo/Automnex.png">
+              <source src="/demo/guard-demo.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
         </div>
       </section>
       <hr className="text-gray-600  w-full xl:max-w-4xl mt-20" />
